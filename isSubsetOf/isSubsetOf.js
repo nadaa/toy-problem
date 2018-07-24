@@ -23,5 +23,16 @@
 */
 
 Array.prototype.isSubsetOf = function (arr) {
-	// your code here
+	var arrSet=new Set(this);    // to omit replicates
+	newArr = Array.from(arrSet); // transform set back to an array
+
+	newArr.sort(function(a,b){return a-b});
+	arr.sort(function(a,b){return a-b});
+
+	for(let i=0;i<newArr.length;i++){
+		if(newArr[i]!==arr[i]){
+			return false;
+		}
+	}
+	return true
 }
